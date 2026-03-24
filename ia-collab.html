@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>預覽 - ia-collab</title>
+  <style>body { margin: 0; background: #f5f5f5; }</style>
+</head>
+<body>
+<!-- ========== 產學合作頁面 ========== -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
+    .ia-wrap * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .ia-wrap {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: #2d3436;
+      line-height: 1.8;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Hero */
+    .ia-wrap .hero {
+      text-align: center;
+      padding: 56px 40px;
+      background: linear-gradient(135deg, #1e1a4a 0%, #353097 40%, #2a2578 100%);
+      border-radius: 20px;
+      margin-bottom: 48px;
+      position: relative; overflow: hidden;
+      border: 3px solid #4a42b0;
+    }
+    .ia-wrap .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(244,192,50,0.1) 0%, transparent 50%);
+    }
+    .ia-wrap .hero-badge {
+      display: inline-block;
+      background: rgba(244,192,50,0.2);
+      border: 1.5px solid rgba(244,192,50,0.5);
+      color: #f4c032;
+      font-size: 15px; font-weight: 700;
+      padding: 8px 20px; border-radius: 24px;
+      margin-bottom: 24px; position: relative;
+    }
+    .ia-wrap .hero h1 {
+      color: #fff; font-size: 36px; font-weight: 900;
+      line-height: 1.35; margin-bottom: 16px; position: relative;
+    }
+    .ia-wrap .hero h1 span { color: #f4c032; }
+    .ia-wrap .hero p {
+      color: #c4bfef; font-size: 18px; position: relative; line-height: 1.7;
+    }
+
+    /* Section Titles */
+    .ia-wrap .section-title {
+      font-size: 26px; font-weight: 900;
+      margin-bottom: 24px; padding-left: 16px;
+      border-left: 5px solid #353097; line-height: 1.4;
+    }
+
+    /* Cards */
+    .ia-wrap .card {
+      background: #f9f8fe; border-radius: 16px;
+      padding: 36px 32px; margin-bottom: 28px;
+      box-shadow: 0 2px 8px rgba(53,48,151,0.08);
+      border: 1px solid #eae7f5;
+    }
+    .ia-wrap .card-warm {
+      background: #fefcf7;
+      border: 1px solid #f0ece3;
+      box-shadow: 0 2px 8px rgba(53,48,151,0.06);
+    }
+    .ia-wrap .card h3 {
+      font-size: 20px; font-weight: 900; color: #353097;
+      margin-bottom: 16px;
+    }
+    .ia-wrap .card p, .ia-wrap .card li {
+      font-size: 16px; color: #475569; line-height: 1.8;
+    }
+    .ia-wrap .card ul { list-style: none; }
+    .ia-wrap .card ul li {
+      padding: 8px 0; padding-left: 28px; position: relative;
+    }
+    .ia-wrap .card ul li::before {
+      content: ''; position: absolute; left: 0; top: 16px;
+      width: 8px; height: 8px; border-radius: 50%; background: #f4c032;
+    }
+
+    /* Roles grid */
+    .ia-wrap .roles-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-bottom: 28px;
+    }
+    .ia-wrap .role-card {
+      background: #f9f8fe; border-radius: 14px;
+      padding: 24px 20px;
+      border: 1px solid #eae7f5;
+      text-align: center;
+    }
+    .ia-wrap .role-icon { font-size: 32px; margin-bottom: 10px; }
+    .ia-wrap .role-name { font-size: 16px; font-weight: 700; color: #353097; margin-bottom: 6px; }
+    .ia-wrap .role-desc { font-size: 14px; color: #64748b; line-height: 1.6; }
+
+    /* Timeline */
+    .ia-wrap .timeline { margin-bottom: 28px; }
+    .ia-wrap .timeline-item {
+      display: flex; gap: 16px; margin-bottom: 16px;
+      align-items: flex-start; padding: 16px; border-radius: 12px;
+      background: #f9f8fe; border: 1px solid #eae7f5;
+    }
+    .ia-wrap .timeline-week {
+      background: linear-gradient(135deg, #353097, #4a42b0);
+      color: #fff; font-size: 13px; font-weight: 900;
+      padding: 8px 12px; border-radius: 10px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .ia-wrap .timeline-content strong { display: block; font-size: 16px; color: #1e293b; margin-bottom: 4px; }
+    .ia-wrap .timeline-content span { font-size: 14px; color: #64748b; }
+
+    /* Pricing */
+    .ia-wrap .pricing {
+      background: linear-gradient(135deg, #1e1a4a 0%, #353097 50%, #2a2578 100%);
+      border-radius: 20px; padding: 48px 40px;
+      margin-bottom: 28px; text-align: center; color: #fff;
+      border: 3px solid #4a42b0;
+      box-shadow: 0 8px 32px rgba(53,48,151,0.25);
+    }
+    .ia-wrap .pricing .section-title { color: #fff; border-left-color: #f4c032; text-align: left; }
+    .ia-wrap .price-tag { font-size: 56px; font-weight: 900; margin: 16px 0 8px; }
+    .ia-wrap .price-detail { font-size: 17px; color: #c4bfef; margin-bottom: 8px; line-height: 1.7; }
+    .ia-wrap .price-discount {
+      display: inline-block;
+      background: rgba(244,192,50,0.2);
+      border: 1.5px solid rgba(244,192,50,0.5);
+      color: #f4c032;
+      font-size: 16px; font-weight: 700;
+      padding: 10px 24px; border-radius: 12px;
+      margin-top: 16px;
+    }
+    .ia-wrap .price-note { font-size: 15px; color: #a09be0; margin-top: 16px; line-height: 1.7; }
+
+    /* FAQ */
+    .ia-wrap .faq-item {
+      background: #f9f8fe; border-radius: 14px;
+      padding: 24px 28px; margin-bottom: 12px;
+      border: 1px solid #eae7f5;
+    }
+    .ia-wrap .faq-q {
+      font-size: 17px; font-weight: 700; color: #1e293b;
+      margin-bottom: 10px; display: flex; gap: 8px;
+    }
+    .ia-wrap .faq-badge {
+      background: #353097; color: #fff;
+      font-size: 12px; font-weight: 700;
+      width: 22px; height: 22px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .ia-wrap .faq-a { font-size: 16px; color: #64748b; line-height: 1.8; padding-left: 30px; }
+
+    /* CTA */
+    .ia-wrap .cta {
+      text-align: center; padding: 44px 32px;
+      background: linear-gradient(135deg, #f3f0fb, #e4d4f3);
+      border-radius: 20px; margin-bottom: 28px;
+    }
+    .ia-wrap .cta h2 { font-size: 26px; font-weight: 900; margin-bottom: 12px; color: #1e293b; }
+    .ia-wrap .cta p { font-size: 17px; color: #64748b; line-height: 1.7; }
+    .ia-wrap .cta .highlight { color: #353097; font-weight: 700; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .ia-wrap { padding: 20px 16px; }
+      .ia-wrap .hero { padding: 40px 20px; }
+      .ia-wrap .hero h1 { font-size: 28px; }
+      .ia-wrap .roles-grid { grid-template-columns: 1fr; }
+      .ia-wrap .pricing { padding: 36px 24px; }
+      .ia-wrap .price-tag { font-size: 42px; }
+    }
+</style>
+
+<div class="ia-wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">Notion 接案實戰班｜畢業學員專屬</div>
+    <h1>Notion <span>實戰案件</span>陪跑計畫<br>產學合作方案</h1>
+    <p>從課程走向案場，與導師並肩<br>打造你的第一件企業級代表作</p>
+  </div>
+
+  <!-- 計畫簡介 -->
+  <div class="card">
+    <h3>這個計畫是什麼？</h3>
+    <p>本計畫屬於<strong>教育實作型</strong>的產學合作，由完課優良學員在帶案導師把關下，協助真實企業建置一套可實際運作的 Notion 系統。</p>
+    <p style="margin-top:16px;">你將從需求訪談、架構設計、系統建置到結案交付，完整走過一輪接案流程，累積真實的作品集與企業客戶好評。</p>
+  </div>
+
+  <!-- 你會得到什麼 -->
+  <h2 class="section-title">你會得到什麼？</h2>
+  <div class="card card-warm">
+    <ul>
+      <li><strong>真實企業專案</strong>：不是模擬情境，而是與真實企業合作建置 Notion 系統</li>
+      <li><strong>導師全程把關</strong>：帶案導師在關鍵節點審核品質，提供技術指導與優化建議</li>
+      <li><strong>10 週完整接案體驗</strong>：從需求會議、報價、系統製作、交付到結案，完整走一輪</li>
+      <li><strong>企業級作品集</strong>：結案後取得企業授權，將成果列入你的作品集</li>
+      <li><strong>客戶好評與品牌背書</strong>：企業提供回饋表單、好評影片與 Logo 授權展示</li>
+    </ul>
+  </div>
+
+  <!-- 適合的企業類型 -->
+  <h2 class="section-title">我們媒合什麼樣的企業？</h2>
+  <div class="card">
+    <ul>
+      <li><strong>小型系統建置</strong>：個人品牌、小型團隊或部門，5 人以下，組織層級單純</li>
+      <li><strong>需求聚焦明確</strong>：專注於專案管理、任務管理、知識庫等核心場景</li>
+      <li><strong>已有確定的工作流程</strong>：適合已有工作流、需要數位化的企業</li>
+    </ul>
+    <p style="margin-top:12px; font-size:15px; color:#64748b;">實際需求將於確認合作後，由導師帶領你在需求會議中共同確認。</p>
+  </div>
+
+  <!-- 角色分工 -->
+  <h2 class="section-title">四方角色分工</h2>
+  <div class="roles-grid">
+    <div class="role-card">
+      <div class="role-icon">👩🏻‍💻</div>
+      <div class="role-name">執案顧問（你）</div>
+      <div class="role-desc">主導會議、建置系統、管理專案、與企業對接</div>
+    </div>
+    <div class="role-card">
+      <div class="role-icon">🧑🏻‍🏫</div>
+      <div class="role-name">帶案導師</div>
+      <div class="role-desc">品質把關、技術指導、關鍵節點審核</div>
+    </div>
+    <div class="role-card">
+      <div class="role-icon">🏢</div>
+      <div class="role-name">企業端</div>
+      <div class="role-desc">提供需求與資料、指派窗口、決策者參與</div>
+    </div>
+    <div class="role-card">
+      <div class="role-icon">🛡️</div>
+      <div class="role-name">計畫方（米米、老K）</div>
+      <div class="role-desc">流程控管、風險管理、重大議題介入協調</div>
+    </div>
+  </div>
+
+  <!-- 10 週時程 -->
+  <h2 class="section-title">10 週專案執行時程</h2>
+  <p style="font-size:15px; color:#64748b; margin-bottom:20px;">從需求會議起算，約 10 週內完成。實際節奏依企業回覆速度調整，也可能提早完成。</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-week">W1</div>
+      <div class="timeline-content">
+        <strong>專案啟動：需求會議</strong>
+        <span>確認企業需求，對齊系統製作範圍</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">W2</div>
+      <div class="timeline-content">
+        <strong>架構審核與報價</strong>
+        <span>系統架構凍結、生成報價單、進入製作期</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">W3-4</div>
+      <div class="timeline-content">
+        <strong>系統初版製作</strong>
+        <span>建置系統、與企業保持溝通</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">W5</div>
+      <div class="timeline-content">
+        <strong>初版交付會議</strong>
+        <span>向企業展示初版、收集回饋</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">W6</div>
+      <div class="timeline-content">
+        <strong>系統修改期</strong>
+        <span>根據企業回饋優化系統</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">W7</div>
+      <div class="timeline-content">
+        <strong>系統轉移與測試</strong>
+        <span>協助企業上線、疑難排解</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">W8</div>
+      <div class="timeline-content">
+        <strong>二次修改</strong>
+        <span>根據實測回饋做最終調整</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">W9</div>
+      <div class="timeline-content">
+        <strong>品管驗收</strong>
+        <span>導師最終品質審核、製作使用說明書</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">W10</div>
+      <div class="timeline-content">
+        <strong>結案會議</strong>
+        <span>正式結案、取得企業好評與授權</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 報名流程 -->
+  <h2 class="section-title">報名流程</h2>
+  <div class="card">
+    <ul>
+      <li><strong>第一步</strong>：填寫產學合作學員自評意願與報名表單</li>
+      <li><strong>第二步</strong>：導師評估、分組媒合、配對案件</li>
+      <li><strong>第三步</strong>：加入數位槓桿 Discord 群組與 Notion 工作區</li>
+      <li><strong>第四步</strong>：成功配對後，繳交報名費、簽約</li>
+      <li><strong>第五步</strong>：案件啟動，開始你的第一個實戰專案</li>
+    </ul>
+  </div>
+
+  <!-- 費用 -->
+  <div class="pricing">
+    <h2 class="section-title">費用說明</h2>
+    <div class="price-tag">$13,500</div>
+    <div class="price-detail">產學合作學費 $11,500 ＋ 保證金 $2,000</div>
+    <div class="price-discount">衝刺營達標者享 $1,500 折抵 → $12,000</div>
+    <div class="price-note">
+      保證金於專案順利完成後全額返還。<br>
+      若學員消極應對導致專案無法推行，經導師與計畫方判定後，<br>
+      將退回學費但保留保證金，以保障夥伴與企業的權益。
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <h2 class="section-title">常見問題</h2>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-badge">Q</span> 我需要具備什麼條件才能報名？</div>
+    <p class="faq-a">需完成《Notion 接案顧問實戰班》課程，並通過導師評估。導師會根據你的課程作業表現來判斷是否適合進入產學合作。</p>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-badge">Q</span> 是一個人做還是團隊合作？</div>
+    <p class="faq-a">通常兩位學員一組，共同負責一個企業專案。導師會根據自評表來配對互補的隊友。</p>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-badge">Q</span> 企業中途退出怎麼辦？</div>
+    <p class="faq-a">我們在合作前會與企業簽訂合約，約定雙方需走完整個計劃流程。進入計劃後，學員也會與企業簽訂系統製作範疇合約。</p>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-badge">Q</span> 如果企業需求一直膨脹怎麼辦？</div>
+    <p class="faq-a">第二週的架構凍結是關鍵。簽約後的新需求只能排到下一期，或在計劃結束後轉為正式付費案件。導師會協助你守住邊界。</p>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-badge">Q</span> 我很擔心面對真實客戶，怎麼辦？</div>
+    <p class="faq-a">這很正常！導師會在需求訪談前與你做心理建設、預演客戶可能的質疑。整個過程中導師都在旁邊，你不是一個人面對。</p>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span class="faq-badge">Q</span> 保證金什麼時候退還？</div>
+    <p class="faq-a">專案順利完成結案後即返還。保證金機制是為了確保每位夥伴都能在公平、有責任感的環境下協作。</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>準備好踏上接案之路了嗎？</h2>
+    <p>填寫自評表單、等待導師媒合<br>你的第一個企業級代表作，就從這裡開始</p>
+    <p style="margin-top:16px;" class="highlight">請點擊頁面右上角的「立即購買」完成報名</p>
+  </div>
+
+</div>
+</body>
+</html>
