@@ -3,18 +3,92 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>頁面預覽</title>
+  <title>領先學院｜開課快手頁面預覽</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; background: #f5f5f5; }
-    nav { background: #353097; padding: 12px 24px; display: flex; gap: 16px; }
-    nav a { color: #fff; text-decoration: none; font-family: 'Noto Sans TC', sans-serif; font-size: 14px; padding: 6px 16px; border-radius: 8px; }
-    nav a:hover, nav a.active { background: rgba(255,255,255,0.2); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: #f5f5f7;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .container {
+      max-width: 600px; width: 100%; padding: 40px 24px;
+      text-align: center;
+    }
+    .logo-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #353097, #4a42b0);
+      color: #fff; font-size: 14px; font-weight: 700;
+      padding: 8px 20px; border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 32px; font-weight: 900; color: #1e293b;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 16px; color: #64748b; margin-bottom: 40px;
+    }
+    .card-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .card {
+      background: #fff; border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 2px 12px rgba(53,48,151,0.08);
+      border: 1px solid #eae7f5;
+      text-decoration: none; color: inherit;
+      transition: all 0.3s ease;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 12px;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(53,48,151,0.15);
+      border-color: #353097;
+    }
+    .card-icon { font-size: 40px; }
+    .card-title { font-size: 18px; font-weight: 900; color: #353097; }
+    .card-desc { font-size: 14px; color: #64748b; line-height: 1.6; }
+    .card-badge {
+      display: inline-block;
+      font-size: 12px; font-weight: 700;
+      padding: 4px 12px; border-radius: 6px;
+    }
+    .badge-gold { background: #fef3cd; color: #92400e; }
+    .badge-purple { background: #e4d4f3; color: #353097; }
+    .footer {
+      margin-top: 40px; font-size: 13px; color: #94a3b8;
+    }
+    @media (max-width: 500px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="sprint-camp.html">衝刺營</a>
-    <a href="ia-collab.html">產學合作</a>
-  </nav>
+  <div class="container">
+    <div class="logo-badge">領先學院 Leading MRK</div>
+    <h1>開課快手頁面預覽</h1>
+    <p class="subtitle">點選下方卡片預覽各產品的銷售頁面</p>
+    <div class="card-grid">
+      <a href="sprint-camp.html" class="card">
+        <div class="card-icon">🚀</div>
+        <div class="card-title">陪跑衝刺營</div>
+        <div class="card-desc">2026 春季第二梯次<br>八週特訓 4/13 開跑</div>
+        <span class="card-badge badge-gold">$1,000 保證金</span>
+      </a>
+      <a href="ia-collab.html" class="card">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">產學合作</div>
+        <div class="card-desc">實戰案件陪跑計畫<br>與導師並肩接案</div>
+        <span class="card-badge badge-purple">$13,500</span>
+      </a>
+    </div>
+    <p class="footer">此為內部預覽站，非正式銷售頁面</p>
+  </div>
 </body>
 </html>

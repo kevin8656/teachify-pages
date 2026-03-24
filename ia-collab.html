@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>預覽 - ia-collab</title>
+  <title>預覽 - 產學合作</title>
   <style>body { margin: 0; background: #f5f5f5; }</style>
 </head>
 <body>
@@ -28,15 +28,26 @@
       text-align: center;
       padding: 56px 40px;
       background: linear-gradient(135deg, #1e1a4a 0%, #353097 40%, #2a2578 100%);
+      background-size: 200% 200%;
+      animation: iaHeroShift 8s ease-in-out infinite;
       border-radius: 20px;
       margin-bottom: 48px;
       position: relative; overflow: hidden;
       border: 3px solid #4a42b0;
     }
+    @keyframes iaHeroShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
     .ia-wrap .hero::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 70% 30%, rgba(244,192,50,0.1) 0%, transparent 50%);
+      position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(244,192,50,0.1) 0%, transparent 50%);
+      animation: iaPulse 5s ease-in-out infinite;
+    }
+    @keyframes iaPulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.15); opacity: 1; }
     }
     .ia-wrap .hero-badge {
       display: inline-block;
@@ -46,6 +57,11 @@
       font-size: 15px; font-weight: 700;
       padding: 8px 20px; border-radius: 24px;
       margin-bottom: 24px; position: relative;
+      animation: iaBadgePulse 2.5s ease-in-out infinite;
+    }
+    @keyframes iaBadgePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(244,192,50,0.3); }
+      50% { box-shadow: 0 0 0 10px rgba(244,192,50,0); }
     }
     .ia-wrap .hero h1 {
       color: #fff; font-size: 36px; font-weight: 900;
@@ -69,6 +85,12 @@
       padding: 36px 32px; margin-bottom: 28px;
       box-shadow: 0 2px 8px rgba(53,48,151,0.08);
       border: 1px solid #eae7f5;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ia-wrap .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(53,48,151,0.12);
+      border-color: #c4bfef;
     }
     .ia-wrap .card-warm {
       background: #fefcf7;
@@ -89,7 +111,13 @@
     .ia-wrap .card ul li::before {
       content: ''; position: absolute; left: 0; top: 16px;
       width: 8px; height: 8px; border-radius: 50%; background: #f4c032;
+      transition: transform 0.3s;
     }
+    .ia-wrap .card ul li:hover::before { transform: scale(1.5); }
+    .ia-wrap .card ul li {
+      transition: transform 0.3s; cursor: default;
+    }
+    .ia-wrap .card ul li:hover { transform: translateX(6px); }
 
     /* Roles grid */
     .ia-wrap .roles-grid {
@@ -101,8 +129,19 @@
       padding: 24px 20px;
       border: 1px solid #eae7f5;
       text-align: center;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      cursor: default;
     }
-    .ia-wrap .role-icon { font-size: 32px; margin-bottom: 10px; }
+    .ia-wrap .role-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(53,48,151,0.12);
+      border-color: #f4c032;
+    }
+    .ia-wrap .role-icon {
+      font-size: 32px; margin-bottom: 10px;
+      transition: transform 0.3s;
+    }
+    .ia-wrap .role-card:hover .role-icon { transform: scale(1.2) rotate(-5deg); }
     .ia-wrap .role-name { font-size: 16px; font-weight: 700; color: #353097; margin-bottom: 6px; }
     .ia-wrap .role-desc { font-size: 14px; color: #64748b; line-height: 1.6; }
 
@@ -112,13 +151,22 @@
       display: flex; gap: 16px; margin-bottom: 16px;
       align-items: flex-start; padding: 16px; border-radius: 12px;
       background: #f9f8fe; border: 1px solid #eae7f5;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      cursor: default;
+    }
+    .ia-wrap .timeline-item:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 24px rgba(53,48,151,0.1);
+      border-color: #c4bfef;
     }
     .ia-wrap .timeline-week {
       background: linear-gradient(135deg, #353097, #4a42b0);
       color: #fff; font-size: 13px; font-weight: 900;
       padding: 8px 12px; border-radius: 10px;
       white-space: nowrap; flex-shrink: 0;
+      transition: transform 0.3s;
     }
+    .ia-wrap .timeline-item:hover .timeline-week { transform: scale(1.1); }
     .ia-wrap .timeline-content strong { display: block; font-size: 16px; color: #1e293b; margin-bottom: 4px; }
     .ia-wrap .timeline-content span { font-size: 14px; color: #64748b; }
 
@@ -149,7 +197,14 @@
       background: #f9f8fe; border-radius: 14px;
       padding: 24px 28px; margin-bottom: 12px;
       border: 1px solid #eae7f5;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      cursor: default;
     }
+    .ia-wrap .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(53,48,151,0.1);
+    }
+    .ia-wrap .faq-item:hover .faq-badge { transform: scale(1.15); }
     .ia-wrap .faq-q {
       font-size: 17px; font-weight: 700; color: #1e293b;
       margin-bottom: 10px; display: flex; gap: 8px;
@@ -160,6 +215,7 @@
       width: 22px; height: 22px; border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; margin-top: 1px;
+      transition: transform 0.3s;
     }
     .ia-wrap .faq-a { font-size: 16px; color: #64748b; line-height: 1.8; padding-left: 30px; }
 
